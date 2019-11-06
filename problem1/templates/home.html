@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="jumbo">
+    <h2>Welcome to Greeter!</h2>
+
+      <!-- NOTE: Do not modify the form below -->
+      <h3>
+        <form action="/greet" method="POST">
+          <div>
+            <label for="user">Name:</label>
+            <input type="text" id="user" name="user">
+            <label for="msg">Message:</label>
+            <input type="text" id="msg" name="msg">
+            <input type="submit">
+          </div>
+        </form>
+      </h3>
+    
+      <!-- TODO: use flask templates to show the appropiate things to the user -->
+    {% if user %}
+      <h3>Hi, {{ user }}!</h3>
+      {% if msg %}
+        <h3>Your message is: <b>{{ msg }}</b></h3>
+      {% else %}
+        <h3>No message detected!</h3>
+      {% endif %}
+    {% else %}
+      <h3>No user detected!</h3>
+    {% endif %}
+    {% if pic %}
+        <img class='center' src={{ url_for('static', filename='img/' + pic) }} height="100" width="100">
+    {% endif %}
+  </div>
+{% endblock %}
