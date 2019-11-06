@@ -104,6 +104,35 @@ __NOTE:__ If you have not made a good faith effort on the rest of this problem, 
 1. CSS practice. We have provided an empty CSS file at `static/css/main.css`. Use this to spice up your application's look. We will award up to 3 bonus points depending on how cool your site looks. You may also modify `templates/main.html` and `templates/todo.html` if you want to modify the structure.
 2. Steady state. Soon, you will be learning about databases and how to make your application handle being shut down and restarted without losing data. You may not know how to use databases, but you do know how to work with text files. Figure out a way to store your todo list information in a file and read from it whenever the application starts up so the list is never lost. [This](https://www.w3schools.com/python/python_file_write.asp) and [this](https://www.makeuseof.com/tag/json-python-parsing-simple-guide/) might help you get started. This is also worth up to 3 bonus points.
 
+## 3. Bread adventures
+Tux and Tango went fishing during the last weekend. As it took some time to catch the fish, Tango was bragging about this cool thing called fractals she studied previously in her former life as a scholar of Benoit Mandelbrot before she became a penguin. In particular, she told Tux everything about the Mandelbrot set, a fractal which is defined as the set of all complex points $c \in \mathbb{C}$ for which the sequence $z_0, z_{n_1} = z_n^2 +c$ is bounded. I.e. $c$ is in the mandelbrot set if $\mathrm{lim sup}_{n \rightarrow \infty}|z_{n+1}| \leq 2$.
+
+![X=.35,Y=.5,step=.0001](https://i.imgur.com/DOdfHO2.png)
+
+Tux was shocked! He didn't understand any of the math and felt lost. However, he remembered that he has seen some beautiful pictures of the mandelbrot set somewhere before and so he decided to code the formulas quickly up in a Flask web application to show Tango that though he is not a mathematician, he does appreciate the beauty of it a lot. Unfortunately, however, his internet connection dropped and he wasn't able to finish his application without access to the flask documentation :/
+
+Help Tux make his Mandelbrot application work!
+
+_NOTE_: For this problem you will need to install the following libraries:
+* `flask-bootstrap`
+* `numpy`
+* `pillow`
+
+We suggest using `pip3 install [library_name]` 
+
+1. **Plotting the Mandelbrot Set**
+
+Tux wrote some code in `mandelbrot.py` to plot the set as an image. He wants to make it accessible under `/mandelbrot` while passing the parameters `X`, `Z`, `step` via a `GET` request.
+Please edit `views.py` to create two routes `/` to access the application and `/mandelbrot` to access the png image.
+
+2. **Connecting the index page to the plotter**
+
+Tux created the layout for the form and some cool Javascript logic to submit the form. However, he forgot to select which fields to pass to `/mandelbrot`. Help him by adding the required attributes to the form elements in the template and setup a route to show the interface under `/`!
+
+**Bonus:** Use the Mandelbrot web application and curl to write a script which downloads images and creates a zoom-in video via ffmpeg (To do so fix X, Y to a coordinate and change step).
+
+After you helper Tux, you may take a rest to relax while watching a beautiful zoom into the mandelbrot on <https://www.youtube.com/watch?v=PD2XgQOyCCk>.
+
 ## Deliverables
 To successfully turn this assignment in, you need to complete the following.
 1. Create a new private repo, push all your code.
